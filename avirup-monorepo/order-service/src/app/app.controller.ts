@@ -3,12 +3,12 @@ import { AppService } from './app.service';
 import { ClientProxy } from '@nestjs/microservices';
 import { firstValueFrom } from 'rxjs';
 
-@Controller()
+@Controller('orders')
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(@Inject('AUTH_SERVICE') private readonly authClient: ClientProxy) {}
 
-  @Get()
-  getData() {
-    return this.appService.getData();
-  }
+  // @Get()
+  // getData() {
+  //   return this.appService.getData();
+  // }
 }
