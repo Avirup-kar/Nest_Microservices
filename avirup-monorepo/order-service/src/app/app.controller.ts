@@ -7,8 +7,15 @@ import { firstValueFrom } from 'rxjs';
 export class AppController {
   constructor(@Inject('AUTH_SERVICE') private readonly authClient: ClientProxy) {}
 
-  // @Get()
-  // getData() {
-  //   return this.appService.getData();
-  // }
+  @Get(':id')
+  async getData(@Param('id') userId: string) {
+    const pattern = { cmd: 'validate_user' };
+    const payload = { userId: Number(userId) };
+    const authResponse = await firstValueFrom(this.authClient.send(pattern, payload));
+    if (authResponse.status === 'success') {
+      return { message: `User ${authResponse.user.name} is valid.` };
+    } else {
+      return { message: authResponse.message };
+    }
+  }
 }
