@@ -20,5 +20,10 @@ export class AppController implements OnModuleInit {
   @Get('check-item')
   async bcheckItem(@Query('pid') pid: string) {
      const stockStatus = await lastValueFrom(this.inventoryService.CheckStock({ productId: pid }));
+     if (stockStatus.inStock) {
+      return `Product with ID ${pid} is in stock. Available quantity: ${stockStatus.availableQuantity}`;
+     } else {
+      return `Product with ID ${pid} is out of stock.`;
+     }
   }
 }
