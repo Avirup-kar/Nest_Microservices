@@ -8,7 +8,7 @@ async function bootstrap() {
     transport: Transport.GRPC,
     options: {
       package: 'inventory',
-      protoPath: join(process.cwd(), 'src/proto/inventory.proto'),
+      protoPath: join(process.cwd(), 'lib/proto/inventory.proto'),
       url: 'localhost:50051',
     },
   });
