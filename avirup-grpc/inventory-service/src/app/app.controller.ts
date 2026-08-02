@@ -10,9 +10,11 @@ export class AppController {
       '123': 50,
       '456': 0 
     }
-     
-    const qty = items[data.productId] || 0;
+
     
+    const qty = items[data.productId] || 0;
+    console.log(`Received request for product ID: ${data.productId}`);
+
     return { 
       inStock: qty > 0, 
       availableQuantity: qty 

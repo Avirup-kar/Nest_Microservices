@@ -14,7 +14,7 @@ async function bootstrap() {
   });
   await app.listen();
   console.log(
-    `🚀 GRPS service running on: http://localhost:50051`,
+    `🚀 GRPS service running`,
   );
 }
 
