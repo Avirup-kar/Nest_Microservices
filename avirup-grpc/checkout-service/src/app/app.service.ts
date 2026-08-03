@@ -15,7 +15,7 @@ export class AppService {
       throw new Error('Payment service not found in Consul');
     }
 
-    const address = 'localhost'; // Use 'localhost' instead of 'host.docker.internal'
+    const address = paymentInfo.Address;
     const port = paymentInfo.Port;
     const finalUrl = `http://${address}:${port}/api/health`;
     console.log(`Discovery successful calling Payment Service at: ${finalUrl}`);
