@@ -24,13 +24,13 @@ async function bootstrap() {
     },
   }
 
+  await app.listen(port, '0.0.0.0');
   await consul.agent.service.register(registratinDetails);
   process.on("SIGINT", async () => {
     await consul.agent.service.deregister(serviceId);
     process.exit();
   });
 
-  await app.listen(port);
   console.log(`Payment Service is Running on port ${port} and registered in Consul`)
 } 
 
