@@ -35,6 +35,8 @@
   "workspaces": [
     "packages/*",
     "api-gateway",
-    "api-gateway-e2e"
+    "api-gateway-e2e",
+    "notification-service",
+    "notification-service-e2e"
   ]
 }

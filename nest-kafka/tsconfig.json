@@ -8,6 +8,12 @@
     },
     {
       "path": "./api-gateway"
+    },
+    {
+      "path": "./notification-service-e2e"
+    },
+    {
+      "path": "./notification-service"
     }
   ],
   "compilerOptions": {}
