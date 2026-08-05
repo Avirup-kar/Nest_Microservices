@@ -18,10 +18,10 @@ async function bootstrap() {
       }
     },
   });
-  
+
   await app.listen();
   console.log(
-    `🚀 Application is running on: http://localhost:${port}/${globalPrefix}`,
+    `🚀 Application is running `,
   );
 }
 
