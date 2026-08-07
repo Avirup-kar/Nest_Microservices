@@ -17,8 +17,15 @@ export class AppController implements OnModuleInit {
       console.log('Received user_created event:', data);
       console.log('Data', data);
       throw new Error('Notification service failed'); // Simulate an error for testing
-    } catch (error) {
-      console.error('Error processing user_created event:', error);
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      console.error('Error processing user_created event:', errorMessage);
+      console.log('Sending Event to dead-letter-queue');
+      this.kafkaClient.emit('dead_letter_queue', {
+        failedData: data,
+        error: errorMessage,
+        failedAt: new Date().toISOString()
+      })
     }
   }
 
