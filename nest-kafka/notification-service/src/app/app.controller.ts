@@ -21,7 +21,7 @@ export class AppController implements OnModuleInit {
       const errorMessage = error instanceof Error ? error.message : String(error);
       console.error('Error processing user_created event:', errorMessage);
       console.log('Sending Event to dead-letter-queue');
-      this.kafkaClient.emit('dead_letter_queue', {
+      this.kafkaClient.emit('user_created_dlq', {
         failedData: data,
         error: errorMessage,
         failedAt: new Date()
