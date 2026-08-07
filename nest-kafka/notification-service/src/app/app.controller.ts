@@ -24,7 +24,7 @@ export class AppController implements OnModuleInit {
       this.kafkaClient.emit('dead_letter_queue', {
         failedData: data,
         error: errorMessage,
-        failedAt: new Date().toISOString()
+        failedAt: new Date()
       })
     }
   }
