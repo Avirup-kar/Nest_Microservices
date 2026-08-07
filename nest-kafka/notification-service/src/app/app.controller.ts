@@ -29,5 +29,10 @@ export class AppController implements OnModuleInit {
     }
   }
 
+  @EventPattern('user_created_dlq')
+  handleDLQ(@Payload() data: any) {
+    console.log('Received user_created_dlq event:', data);
+  }
+
 }
 
