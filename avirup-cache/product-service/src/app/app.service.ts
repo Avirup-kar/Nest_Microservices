@@ -25,7 +25,10 @@ export class AppService {
     console.log('cache miss');
   }
 
-  updateProduct(id: number, updatedProduct: any) {
-    
+  updateProduct(id: number, price: number) {
+     const product = products.find((p) => p.id === id);
+     if(product) {
+      p
+     }
   }
 }
