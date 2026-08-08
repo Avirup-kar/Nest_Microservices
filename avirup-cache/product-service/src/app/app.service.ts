@@ -24,4 +24,8 @@ export class AppService {
     }
     console.log('cache miss');
   }
+
+  updateProduct(id: number, updatedProduct: any) {
+    
+  }
 }
