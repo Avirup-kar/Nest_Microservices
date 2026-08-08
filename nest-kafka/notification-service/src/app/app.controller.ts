@@ -3,7 +3,7 @@ import { EventPattern, Payload, ClientKafka } from '@nestjs/microservices';
 
 @Controller()
 export class AppController implements OnModuleInit {
-  constructor(@Inject('KAFKA_CLIENT') private readonly kafkaClient: ClientKafka) {}
+  constructor(@Inject('KAFKA_SERVICE') private readonly kafkaClient: ClientKafka) {}
 
   
   async onModuleInit() {
