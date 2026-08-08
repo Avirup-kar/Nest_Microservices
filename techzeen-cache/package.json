@@ -4,7 +4,9 @@
   "license": "MIT",
   "scripts": {},
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "@nx/nest": "^23.1.1"
+  },
   "devDependencies": {
     "@nx/js": "23.1.0",
     "@swc-node/register": "1.11.1",
