@@ -1,5 +1,4 @@
 import { Controller, Get, OnModuleInit, Inject } from '@nestjs/common';
-import { AppService } from './app.service';
 import { ClientKafka } from '@nestjs/microservices';
 
 
