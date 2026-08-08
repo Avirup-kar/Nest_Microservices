@@ -8,7 +8,7 @@ import{ products } from './fack-db';
 export class AppService {
   constructor(@Inject(CACHE_MANAGER) private cacheManager: Cache) {}
 
-  async getProducts(id: number) {
+  async getProducts(id: string) {
     const cacheKey = `product:${id}`;
     const cachedProduct = await this.cacheManager.get(cacheKey);
 
@@ -20,12 +20,12 @@ export class AppService {
     const product = products.find((p) => p.id === id);
     if(product) {
       await this.cacheManager.set(cacheKey, product);
+      console.log('cache miss');
       return product;
     }
-    console.log('cache miss');
   }
 
-  updateProduct(id: number, price: number) {
+  updateProduct(id: string, price: number) {
      const product = products.find((p) => p.id === id);
      if(!product) {
       return {message: 'Product not found'};
