@@ -9,7 +9,7 @@ export class AppService {
   constructor(@Inject(CACHE_MANAGER) private cacheManager: Cache) {}
 
   async getProducts(id: number) {
-     const cacheKey = `product:${id}`;
+    const cacheKey = `product:${id}`;
     const cachedProduct = await this.cacheManager.get(cacheKey);
 
     if (cachedProduct) {
@@ -27,8 +27,16 @@ export class AppService {
 
   updateProduct(id: number, price: number) {
      const product = products.find((p) => p.id === id);
-     if(product) {
-      p
+     if(!product) {
+      return {message: 'Product not found'};
      }
+     product.price = price;
+     const cacheKey = `product:${id}`;
+     this.cacheManager.set(cacheKey, product);
+      console.log('Product updated');
+      return {
+       message: 'Product updated successfully',
+       product: product
+      }
   }
 }
