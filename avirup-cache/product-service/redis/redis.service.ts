@@ -9,5 +9,6 @@ export class RedisService implements OnModuleInit {
 
     async onModuleInit() {
         await this.client.connect();
+        console.log('Redis client connected successfully');
     }
 }
