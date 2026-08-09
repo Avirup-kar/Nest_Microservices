@@ -1,5 +1,6 @@
-import { Controller, Get, Param, Patch } from '@nestjs/common';
+import { Controller, Get, Param, Patch, UseGuards, } from '@nestjs/common';
 import { AppService } from './app.service';
+// import { RateLimitGuard } from '../../guards/rate-limit.guard';
 
 @Controller()
 export class AppController {
@@ -14,4 +15,7 @@ export class AppController {
   updateProduct(@Param('id') id: string, @Param('price') price: number) {
     return this.appService.updateProduct(id, price);
   }
+
+  @Get('products')
+  @UseGuards(RateLimitGuard)
 }
