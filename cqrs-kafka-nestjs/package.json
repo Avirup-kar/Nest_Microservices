@@ -8,6 +8,7 @@
     "@nestjs/common": "^11.0.0",
     "@nestjs/core": "^11.0.0",
     "@nestjs/cqrs": "^11.0.3",
+    "@nestjs/microservices": "^11.1.29",
     "@nestjs/platform-express": "^11.0.0",
     "@nx/nest": "^23.1.1",
     "axios": "^1.6.0",
