@@ -12,6 +12,7 @@
     "@nestjs/platform-express": "^11.0.0",
     "@nx/nest": "^23.1.1",
     "axios": "^1.6.0",
+    "kafkajs": "^2.2.4",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.0"
   },
