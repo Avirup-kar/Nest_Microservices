@@ -24,4 +24,9 @@ export class ProductController {
       product,
     };
   }
+
+    @Get()
+    async getProducts() {
+        return this.queryBus.execute(new GetProductsQuery());
+    }
 }
