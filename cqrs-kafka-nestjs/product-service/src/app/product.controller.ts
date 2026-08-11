@@ -15,5 +15,6 @@ export class ProductController {
     @Post()
     async create(@Body() body: any) {
         const product = await this.commandBus.execute(new createProductCommand(body.name));
+        this.kafkaClient.emit('product_created', JSON.stringify(product));
     }
 }
