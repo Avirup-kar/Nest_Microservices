@@ -6,7 +6,10 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getData() {
-    return this.appService.getData();
+  getUsers() {
+    return {
+      success: true,
+      message: 'Users fetched successfully!',
+    };
   }
 }
