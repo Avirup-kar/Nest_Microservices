@@ -10,7 +10,7 @@ export class AppController {
   getData() {
     return {
       message: 'Reading dynamically from hashicorp vault at runtime',
-      dbUrl: this.vaultService.getDatabaseUrl()
+      dbUrl: this.vaultService.getDatabaseUrl(),
     };
   }
 }
