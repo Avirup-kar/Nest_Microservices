@@ -22,9 +22,9 @@ export class vaultService implements OnModuleInit {
                 this.dbSecret = response.data.data.DATABASE_URL;
                 console.log('Database URL retrieved from Vault:', this.dbSecret);
             } else {
-                console.error('No data found in the Vault response.');
+                console.warn('No data found in the Vault response.');
             }
-        } catch (error) {
+        } catch (error: any) {
             console.error('Error occurred while fetching data from Vault:', error);
         }
     }
