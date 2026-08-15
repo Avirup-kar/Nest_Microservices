@@ -2,7 +2,7 @@ import { Injectable, OnModuleInit } from "@nestjs/common";
 import Vault from 'node-vault';
 
 @Injectable()
-export class vaultService implements OnModuleInit {
+export class VaultService implements OnModuleInit {
     private readonly vault: any;
     private dbSecret: string = '';
 
@@ -27,5 +27,9 @@ export class vaultService implements OnModuleInit {
         } catch (error: any) {
             console.error('Error occurred while fetching data from Vault:', error);
         }
+    }
+
+    getDatabaseUrl(){
+        return this.dbSecret;
     }
 }
