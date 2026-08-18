@@ -8,6 +8,7 @@ export class AppService {
     if(!this.isServiceHealthy){
       throw new HttpException('Payment gatway is down', HttpStatus.INTERNAL_SERVER_ERROR)
     }
-    return { status: "success" }
+    
+    return { status: 'success', transactionId: `TXN-${Math.floor(Math.random() * 1000000)}`, amount }
   }
 }
