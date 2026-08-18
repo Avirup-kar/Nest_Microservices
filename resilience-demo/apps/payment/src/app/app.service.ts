@@ -8,6 +8,6 @@ export class AppService {
     if(!this.isServiceHealthy){
       throw new HttpException('Payment gatway is down', HttpStatus.INTERNAL_SERVER_ERROR)
     }
-    return 
+    return { status: "success" }
   }
 }
