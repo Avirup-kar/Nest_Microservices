@@ -30,5 +30,6 @@ export class AppService {
   })
 
   this.breaker.on('open', () => this.logger.error('Circuit Breaker State: OPEN (Blocked)'));
+  this.breaker.on('close', () => this.logger.log('Circuit Breaker State: CLOSED(Normal)'))
  }
 }
