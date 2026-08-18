@@ -5,7 +5,7 @@ import CircuitBreaker from 'opossum';
 @Injectable()
 export class AppService {
  private readonly logger = new Logger(AppService.name);
- private readonly breaker: CircuitBreaker<[amount: number], any>;
+ private readonly breaker: CircuitBreaker;
  private readonly paymentServiceUrl = "http://localhost:3001/api/payment/process"
 
  constructor() {
@@ -24,8 +24,11 @@ export class AppService {
    this.logger.warn('Circuit is Open. Fallback Response!')
    return {
     status: 'fallback_active',
-    message:'Payment System is currently busy'
+    message:'Payment System is currently busy',
+    amount
    }
   })
+
+  this.breaker.on('open', () => this.logger.error('Circuit Breaker State: OPEN (Blocked)'));
  }
 }
