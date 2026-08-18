@@ -14,6 +14,6 @@ export class AppService {
 
   toggleHealth(status: boolean) {
     this.isServiceHealthy = status;
-    return { status: `Payment service health is set to I ${status}`}
+    return { status: `Payment service health is set to I ${this.isServiceHealthy}`}
   }
 }
