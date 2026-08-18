@@ -12,7 +12,7 @@ export class AppController {
 
   @Get('toggle')
   toggleHealth(@Query('status') status: string) {
-    const isHealthy = status == 'true'
+    const isHealthy = status === 'true'
     return this.appService.toggleHealth(isHealthy);
   }
 }
