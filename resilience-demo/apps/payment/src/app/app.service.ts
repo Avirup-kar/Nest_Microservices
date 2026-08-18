@@ -11,4 +11,9 @@ export class AppService {
     
     return { status: 'success', transactionId: `TXN-${Math.floor(Math.random() * 1000000)}`, amount }
   }
+
+  toggleHealth(status: boolean) {
+    this.isServiceHealthy = status;
+    return { status: `Payment service health is set to I ${status}`}
+  }
 }
