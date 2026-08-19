@@ -66,6 +66,8 @@ export class AppService {
       this.logger.warn(`Request Failed!, Retry in ${Math.round(nextDelay)}ms... ${retries} retries left`);
 
       await new Promise((res) => setTimeout(res, nextDelay))
+
+      this.executeWithRetry(fn, retries-1, nextDelay)
     }
   }
 }
