@@ -64,6 +64,8 @@ export class AppService {
       const nextDelay = delay * 2 * jitter;
 
       this.logger.warn(`Request Failed!, Retry in ${Math.round(nextDelay)}ms... ${retries} retries left`);
+
+      await new Promise((res) => setTimeout(res, nextDelay))
     }
   }
 }
