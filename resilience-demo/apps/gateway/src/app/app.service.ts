@@ -61,7 +61,9 @@ export class AppService {
       }
 
       const jitter = Math.random() * 200;
-      const nextDelay = 
+      const nextDelay = delay * 2 * jitter;
+
+      this.logger.warn(`Request Failed!, Retry in ${Math.round(nextDelay)}ms... ${retries} retries left`);
     }
   }
 }
