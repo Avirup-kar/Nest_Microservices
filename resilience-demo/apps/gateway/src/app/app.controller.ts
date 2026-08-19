@@ -1,12 +1,12 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 
-@Controller()
+@Controller('order')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getData() {
-    return this.appService.getData();
+  @Post('checkout')
+  async checkout(@Body() body: { amount: number }) {
+    return this.appService.checkout(body.amount);
   }
 }
