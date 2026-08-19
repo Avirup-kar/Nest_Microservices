@@ -59,6 +59,9 @@ export class AppService {
       if(retries <= 0) {
         throw error;
       }
+
+      const jitter = Math.random() * 200;
+      const nextDelay = 
     }
   }
 }
