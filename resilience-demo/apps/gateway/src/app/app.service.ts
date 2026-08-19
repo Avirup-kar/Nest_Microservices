@@ -51,6 +51,9 @@ export class AppService {
   ): Promise<any> {
     try {
       const responce = await fn();
+      this.logger.log(
+      `Request succeeded. Responce: ${JSON.stringify(responce.data)}`,
+    );
       return responce.data;
     } catch (error) {
       if(axios.isAxiosError(error) && error.response && error.request.status >= 400 && error.request.status < 500) {
@@ -60,14 +63,14 @@ export class AppService {
         throw error;
       }
 
-      const jitter = Math.random() * 200;
-      const nextDelay = delay * 2 * jitter;
+      // const jitter = Math.random() * 200;
+      const nextDelay = delay * 9;
 
       this.logger.warn(`Request Failed!, Retry in ${Math.round(nextDelay)}ms... ${retries} retries left`);
 
       await new Promise((res) => setTimeout(res, nextDelay))
 
-      this.executeWithRetry(fn, retries-1, nextDelay)
+      return this.executeWithRetry(fn, retries-1, nextDelay)
     }
   }
 
