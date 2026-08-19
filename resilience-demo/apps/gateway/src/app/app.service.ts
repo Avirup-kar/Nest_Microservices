@@ -54,6 +54,9 @@ export class AppService {
       return responce.data;
     } catch (error) {
       if(axios.isAxiosError(error) && error.response && error.request.status>= 400 && error.request.status > 500) {
+        throw error;
+      }
+      if(retries <= 0) {
         
       }
     }
