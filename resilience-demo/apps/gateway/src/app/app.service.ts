@@ -72,6 +72,6 @@ export class AppService {
   }
 
   async checkout(amount: number ) {
-    
+    return this.breaker.fire(amount);
   }
 }
