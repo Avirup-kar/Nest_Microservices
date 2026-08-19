@@ -70,4 +70,8 @@ export class AppService {
       this.executeWithRetry(fn, retries-1, nextDelay)
     }
   }
+
+  async checkout(amount: number ) {
+    
+  }
 }
