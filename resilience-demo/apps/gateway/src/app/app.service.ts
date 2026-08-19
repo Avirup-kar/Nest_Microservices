@@ -31,5 +31,10 @@ export class AppService {
 
   this.breaker.on('open', () => this.logger.error('Circuit Breaker State: OPEN (Blocked)'));
   this.breaker.on('close', () => this.logger.log('Circuit Breaker State: CLOSED(Normal)'))
+  this.breaker.on('halfOpen', () => this.logger.warn('Circuit Breaker State: HALF_OPEN(Testing)'))
  }
+
+ private executeWithRetry(
+  fn: () => Promise<any>
+ )
 }
