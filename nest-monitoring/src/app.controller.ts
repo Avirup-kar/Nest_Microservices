@@ -10,4 +10,8 @@ export class AppController {
     private readonly requestCounter = Counter<string>
   ) {}
 
+  @Get()
+  getHello(): String {
+    
+  }
 }
