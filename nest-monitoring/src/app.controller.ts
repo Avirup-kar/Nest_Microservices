@@ -7,7 +7,7 @@ import { Counter } from 'prom-client';
 export class AppController {
   constructor(
     @InjectMetric('nestjs_http_requests_total')
-    private readonly requestCounter: Counter<string>
+    private readonly requestCounter: Counter<string>,
   ) {}
 
   @Get()
